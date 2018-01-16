@@ -3,7 +3,7 @@ import generatorStringCell from './generatorStringCell';
 import generatorNumberCell from './generatorNumberCell';
 
 const styleProp = (styleId) => {
-  return (typeof styleId !== 'undefined') ? ` ss:StyleID="${styleId}"` : '';
+  return (typeof styleId !== 'undefined') ? ` s="${styleId}"` : '';
 };
 
 export default (cell, index, rowIndex) => {

@@ -6,7 +6,7 @@ import baseConfig from './baseConfig';
 console.error = jest.genMockFn();
 
 describe('Zipcelx', () => {
-  const rowsXML = `<row r="1"><c r="A1" t="inlineStr" ss:StyleID="style1"><is><t>Test</t></is></c><c r="B1" ss:StyleID="style2"><v>1000</v></c></row>`;
+  const rowsXML = `<row r="1"><c r="A1" t="inlineStr" s="style1"><is><t>Test</t></is></c><c r="B1" s="style2"><v>1000</v></c></row>`;
   const styleXML = `<Style ss:id="style1"><ss:Font ss:Color="#ff0000"/></Style><Style ss:id="style2"><ss:Font ss:Color="#0000ff"/></Style>`
 
   it('Should throw error if validator fails', () => {
