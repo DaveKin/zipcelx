@@ -3,18 +3,16 @@ import FileSaver from 'file-saver';
 
 import validator from './validator';
 import generatorRows from './formatters/rows/generatorRows';
-import generatorStyles from './formatters/styles/generatorStyles';
-
 import workbookXML from './statics/workbook.xml';
+import stylesXML from './statics/styles.xml';
 import workbookXMLRels from './statics/workbook.xml.rels';
 import rels from './statics/rels';
 import contentTypes from './statics/[Content_Types].xml';
 import templateSheet from './templates/worksheet.xml';
 
-export const generateXMLWorksheet = (rows, styles) => {
-  const styleBlock = generatorStyles(styles);
+export const generateXMLWorksheet = (rows) => {
   const XMLRows = generatorRows(rows);
-  return templateSheet.replace('{stylesPlaceholder}', styleBlock).replace('{placeholder}', XMLRows);
+  return templateSheet.replace('{placeholder}', XMLRows);
 };
 
 export default (config) => {
@@ -25,6 +23,7 @@ export default (config) => {
   const zip = new JSZip();
   const xl = zip.folder('xl');
   xl.file('workbook.xml', workbookXML);
+  xl.file('styles.xml', stylesXML);
   xl.file('_rels/workbook.xml.rels', workbookXMLRels);
   zip.file('_rels/.rels', rels);
   zip.file('[Content_Types].xml', contentTypes);

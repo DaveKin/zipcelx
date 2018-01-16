@@ -2,8 +2,9 @@ import { validTypes, CELL_TYPE_STRING, WARNING_INVALID_TYPE } from '../../common
 import generatorStringCell from './generatorStringCell';
 import generatorNumberCell from './generatorNumberCell';
 
-const styleProp = (styleId) => {
-  return (typeof styleId !== 'undefined') ? ` s="${styleId}"` : '';
+const styleProp = (stylename) => {
+  const styleId = 2;
+  return (typeof stylename !== 'undefined') ? ` s="${styleId}"` : '';
 };
 
 export default (cell, index, rowIndex) => {
