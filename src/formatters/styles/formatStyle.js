@@ -1,4 +1,6 @@
+import generatorFont from './generatorFont';
 
 export default (style) => {
-  return `<Style ss:id="${style.name}"></Style>`;
+  const font = generatorFont(style.props);
+  return `<Style ss:id="${style.name}">${font}</Style>`;
 };
