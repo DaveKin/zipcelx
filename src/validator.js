@@ -2,7 +2,7 @@ import {
   MISSING_KEY_FILENAME,
   INVALID_TYPE_FILENAME,
   INVALID_TYPE_SHEET,
-  INVALID_TYPE_SHEET_DATA
+  INVALID_TYPE_SHEET_DATA, INVALID_TYPE_STYLES
 } from './commons/constants';
 
 const childValidator = (array) => {
@@ -27,6 +27,11 @@ export default (config) => {
 
   if (!childValidator(config.sheet.data)) {
     console.error(INVALID_TYPE_SHEET_DATA);
+    return false;
+  }
+
+  if (!Array.isArray(config.styles)) {
+    console.error(INVALID_TYPE_STYLES);
     return false;
   }
 
