@@ -28,7 +28,7 @@ export default (config) => {
   zip.file('_rels/.rels', rels);
   zip.file('[Content_Types].xml', contentTypes);
 
-  const worksheet = generateXMLWorksheet(config.sheet.data, config.styles);
+  const worksheet = generateXMLWorksheet(config.sheet.data);
   xl.file('worksheets/sheet1.xml', worksheet);
 
   return zip.generateAsync({ type: 'blob' })
